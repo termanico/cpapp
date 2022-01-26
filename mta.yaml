@@ -13,10 +13,11 @@ build-parameters:
   before-all:
     - builder: custom
       commands:
-        - npm ci
+        - npm install --production
         - npx -p @sap/cds-dk cds build --production
         - cp -r db/data gen/srv/srv/data #linux
         # - xcopy /Y /E /S /I db\\data gen\\srv\\srv\\data  #windows
+        - npx rimraf gen/db/src/gen/data #no initial data load on HANA
 
 modules:
   # --------------------- SERVER MODULE ------------------------
@@ -26,8 +27,8 @@ modules:
     path: gen/srv
     parameters:
       buildpack: nodejs_buildpack
-    build-parameters:
-      builder: npm-ci
+    # build-parameters:
+    #   builder: npm-ci
     requires:
       # Resources extracted from CAP configuration
       - name: cpapp-uaa
@@ -46,6 +47,16 @@ resources:
     parameters:
       service: xsuaa
       service-plan: application
+      path: ./xs-security.json
       config:
         xsappname: cpapp-${space} #  name + space dependency
         tenant-mode: dedicated
+        role-collections:
+          - name: "RiskManager-${space}"
+            description: Manage Risks
+            role-template-references:
+              - $XSAPPNAME.RiskManager
+          - name: "RiskViewer-${space}"
+            description: View Risks
+            role-template-references:
+              - $XSAPPNAME.RiskViewer
