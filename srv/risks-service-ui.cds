@@ -1,7 +1,8 @@
 using RiskService from './risk-service';
 
 annotate RiskService.Risks with {
-    title  @title : 'Title';
+    title  @title : 'Titel';
+    // title  @title : '{i18n>title}';
     prio   @title : 'Priority';
     descr  @title : 'Description';
     miti   @title : 'Mitigation';
@@ -36,7 +37,11 @@ annotate RiskService.Risks with @(
         SelectionFields  : [prio],
         LineItem         : [
             {Value : title},
-            {Value : miti_ID},
+            {
+                Value                 : miti_ID,
+                ![@HTML5.CssDefaults] : {width : '100%'}
+            },
+            // {Value : miti_ID},
             {
                 Value       : prio,
                 Criticality : criticality
