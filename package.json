@@ -8,14 +8,14 @@
     "dependencies": {
         "@sap/cds": "^5",
         "@sap/xssec": "^3.2.12",
-        "express": "^4"
+        "express": "^4",
+        "sqlite3": "^5.0.2"
     },
     "devDependencies": {
         "@sap/eslint-plugin-ui5-jsdocs": "^2.0.5",
         "@sap/ux-specification": "^1.96.2",
         "@sapui5/ts-types": "^1.92.2",
-        "eslint": "^7.32.0",
-        "sqlite3": "^5.0.2"
+        "eslint": "^7.32.0"
     },
     "engines": {
         "node": "^14"

@@ -17,7 +17,7 @@ build-parameters:
         - npx -p @sap/cds-dk cds build --production
         - cp -r db/data gen/srv/srv/data #linux
         # - xcopy /Y /E /S /I db\\data gen\\srv\\srv\\data  #windows
-        - npx rimraf gen/db/src/gen/data #no initial data load on HANA
+        # - npx rimraf gen/db/src/gen/data #no initial data load on HANA
 
 modules:
   # --------------------- SERVER MODULE ------------------------
@@ -27,7 +27,8 @@ modules:
     path: gen/srv
     parameters:
       buildpack: nodejs_buildpack
-    # build-parameters:
+    build-parameters:
+      ignore: ["node_modules/"]
     #   builder: npm-ci
     requires:
       # Resources extracted from CAP configuration
