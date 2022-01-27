@@ -58,6 +58,10 @@
                 "credentials": {
                     "database": ":memory:"
                 }
+            },
+            "uaa": {
+                "kind": "xsuaa",
+                "credentials": {}
             }
         },
         "features": {
