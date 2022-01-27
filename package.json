@@ -22,6 +22,7 @@
     },
     "scripts": {
         "start": "cds run",
+        "deploy": "mbt build -t ./ && cf deploy ./cpapp_1.0.0.mtar",
         "undeploy": "cf undeploy cpapp --delete-services --delete-service-keys"
     },
     "eslintConfig": {
