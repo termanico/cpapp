@@ -61,7 +61,8 @@
             }
         },
         "features": {
-            "in_memory_db": true
+            "in_memory_db": true,
+            "fiori_preview": true
         }
     }
 }

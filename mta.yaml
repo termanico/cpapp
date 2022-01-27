@@ -27,8 +27,8 @@ modules:
       path: gen/srv
       parameters:
           buildpack: nodejs_buildpack
-      # build-parameters:
-      #   ignore: ["node_modules/"]
+      build-parameters:
+          ignore: ["node_modules/"]
       #   builder: npm-ci
       # requires:
       #   # Resources extracted from CAP configuration
