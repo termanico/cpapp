@@ -58,15 +58,10 @@
                 "credentials": {
                     "database": ":memory:"
                 }
-            },
-            "uaa": {
-                "kind": "xsuaa",
-                "credentials": {}
             }
         },
         "features": {
-            "in_memory_db": true,
-            "fiori_preview": true
+            "in_memory_db": true
         }
     }
 }
